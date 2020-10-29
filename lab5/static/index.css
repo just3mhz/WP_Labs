@@ -1,0 +1,53 @@
+#items_table {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    table-layout: fixed;
+    overflow: hidden;
+}
+
+#items_table td, #items_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#items_table tr:nth-child(even){background-color: #afafaf;}
+
+#items_table tr:hover {background-color: #ddd;}
+
+#items_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.id_td {
+    width: 75px;
+}
+
+.field_td {
+    width: 300px;
+}
+
+.edit-ok {
+    width: 80px;
+    height: 20px;
+    text-align: center;
+    font-size: 6pt;
+}
+
+.edit-cancel {
+    width: 80px;
+    height: 20px;
+    text-align: center;
+    font-size: 6pt;
+}
+
+.insert_item {
+    font-size: 13pt;
+}
+
+#remove_row_number {
+    font-size: 13pt;
+}

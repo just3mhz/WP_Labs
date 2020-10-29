@@ -1,0 +1,59 @@
+<!-- Лабораторная работа №2 
+Выполнил: Никитин Андрей, гр М8О-108М-20
+Вариант №18: (а) TABLE из одного столбца, несколько кнопок по числу ячеек таблицы.
+             (б) В элементе INPUT указать число ячеек.
+             (в) По кнопке очищается соответствующая ячейка
+             Значения в ячейках заданы в массиве
+-->
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h1> Лабораторная работа №2 </h1>
+    <p><b> Выполнил: </b> Никитин Андрей, гр. М8О-108М-20 </p>
+    <p><b> Вариант №18: </b></p>
+    (а) TABLE из одного столбца, несколько кнопок по числу ячеек таблицы. <br>
+    (б) В элементе INPUT указать число ячеек. <br>
+    (в) По кнопке очищается соответствующая ячейка. <br>
+    Значения в ячейках заданы в массиве<br>
+    <br>
+    <br>
+    Форма №1 <br>
+    <form name="first_form" style="border: solid 1px; width: 480px;">
+        <input type="number" name="number" value="3"> <br>
+        <input type="button" value="Generate" name="gen_button" onclick="generate()">
+    </form>
+    <br>
+    Форма №2 <br>
+    <form name="second_form" style="border: solid 1px; width: 480px;">
+    </form>
+
+    <script>
+        table_content = [" a ", " b ", " c ", " d ", " e ", " f ", " g "]
+        cell_style = 'style="width: 30px; height: 30px"'
+
+        function clear_td(obj) {
+            var cell = document.getElementsByTagName("td")[obj.value]
+            cell.innerHTML = "&nbsp;"
+        }
+
+        function generate() {
+            var new_content = ""
+            var num_of_elements = document.first_form.number.value
+            for(var i = 0; i < num_of_elements; ++i) {
+                new_content += `<input type="button" name=${i} value=${i} onclick="clear_td(this)" ${cell_style}>\n`;
+            }
+            new_content += `<table border="1" cellspacing="0">\n`
+            new_content += `<tr>\n`
+            for(var i = 0; i < num_of_elements; ++i) {
+                if (i < table_content.length)
+                    new_content += `\t<td ${cell_style}>${table_content[i]}</td>\n`;
+                else
+                new_content += `\t<td ${cell_style}> ? </td>\n`;
+            }
+            new_content += `</tr>\n`
+            document.second_form.innerHTML = new_content;
+        }
+    </script>
+</body>
+</html>

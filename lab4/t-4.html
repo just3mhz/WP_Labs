@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="t-4.css">
+    <title>Лабораторная работа №4</title>
+</head>
+<body>
+<h1>Лабораторная работа №4</h1>
+<b>Выполнил:</b> Никитин Андрей, гр. 108М <br>
+<b>Вариант:</b> 7<br>
+<ul>
+    <li>removeAttr()</li>
+    <li>offsetParent()</li>
+    <li>:checkbox</li>
+    <li>outerWidth()</li>
+    <li>detach(), remove()</li>
+    <li>offsetParent()</li>
+    <li>undelegate()</li>
+    <li>click()</li>
+    <li>focus()</li>
+    <li>hide(), show()</li>
+</ul>
+<h2>Результаты работы</h2>
+<h3>2) Использование offsetParent </h3>
+<form>
+    <input type="button" value="Click me" onclick="change_color()">
+</form>
+<div class="outer">
+    Ближайший предок с заданным позиционированием
+    <div class="wrapper">
+        Контейнер-обертка
+        <div class="inner">
+            Внутренний контейнер
+        </div>
+    </div>
+</div>
+<h3>3) Использование селектора :checkbox</h3>
+<form class="form_with_checkboxes">
+    <input type="button" value="Click me" onclick="check_checkboxes()"> <br>
+    <label for="just_checkbox">This is checkbox</label>
+    <input id="just_checkbox" type="checkbox" readonly> <br>
+    <label for="just_radiobutton">This is radiobutton</label>
+    <input id="just_radiobutton" type="radio" readonly>
+</form>
+<h3>4) Использование outerWidth()</h3>
+<form>
+    <input type="button" value="Click me" onclick="change_width()">
+</form>
+<ul id="list_1">
+    <li class="list_item">One</li>
+    <li class="list_item">Two</li>
+    <li class="list_item">Three</li>
+</ul>
+<br>
+<h3>5) Использование detach(), remove()</h3>
+<p>
+    <b>Замечание:</b> метод detach() отличается от remove() тем, что сохраняет определенную информацию об объекте <br>
+    Такой информацией, например, является используемые обработчики событий. Изначально на обоих контейнерах висит <br>
+    обработчик нажатия мышки, после применения данных методов и восстановления удаленных объектов контейнер,      <br>
+    удаленный с помощью detach, сохранил обработчик, а другой - нет.
+</p>
+<form>
+    <input type="button" value="Clear text" onclick="clear_text()">
+    <input type="button" value="Recover text" onclick="recover_text()">
+</form>
+<div class="container">
+    <div id="text_to_remove">Text to remove</div>
+    <div id="text_to_detach">Text to detach</div>
+</div>
+<h3>7) Использование undelegate()</h3>
+<form>
+    <input type="button" value="Undelegate" onclick="undelegate()">
+</form>
+<div class="background_changer_parent">
+    <div class="background_changer">
+        I can change background until "Undelegate" is clicked
+    </div>
+</div>
+<h3>8, 10) Использование click() в комбинации с hide()/show()</h3>
+<div id="text_to_click">Text to click</div>
+<div id="text_to_hide">Text to hide</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="t-4.js"></script>
+</html>

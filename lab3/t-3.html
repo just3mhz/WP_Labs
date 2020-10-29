@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title> Лабораторная работа №3 </title>
+        <link rel="stylesheet" href="t-3.css" type="text/css">
+    </head>
+    <body>
+        <div class="small-container" style="padding: 20px;">
+          <h1>Лабораторная работа №3</h1>
+            Простой справочник на LocalStorage
+            <br>
+            <br>
+            Справочник должен: <br>
+            1) отображаться в виде таблицы <br>
+            2) содержать 5 полей, первое поле ключевое <br>
+            3) добавление элемента справочника по нажатию Enter в последнем поле <br>
+            4) позволять удалять отдельные элементы по номеру <br>
+            5) позволять изменять отдельные элементы <br>
+
+          <h2> Input form </h2>
+          <form id="input_form">
+            <input class="input_item" type="text" required />
+            <input class="input_item" type="text" required />
+            <input class="input_item" type="text" required />
+            <input class="input_item" type="text" required />
+            <input class="input_item" type="text" required />
+            <input class="input_item" type="text" required />
+            <input type="submit" style="display: none" />
+          </form>
+
+          <h2> Remove form </h2>
+          <form id="remove_form">
+            <input id="remove_row_number" type="text" placeholder="Row number" required />
+          </form>
+
+          <h2> Edit form </h2>
+          <form id="edit_form">
+            <input id="edit_row_number" type="text" required />
+            <input id="load_button" type="button" value="Load">
+            <br>
+            <br>
+            <input class="edit_item" type="text" required readonly/>
+            <input class="edit_item" type="text" required readonly/>
+            <input class="edit_item" type="text" required readonly/>
+            <input class="edit_item" type="text" required readonly/>
+            <input class="edit_item" type="text" required readonly/>
+            <input class="edit_item" type="text" required readonly/>
+            <input type="submit" style="display: none" />
+          </form>
+          
+          <h2> Items </h2>
+          <table id="items_table"></table>
+        </div>
+        <script src="t-3.js"></script>
+      </body>
+</html>

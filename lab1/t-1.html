@@ -1,0 +1,37 @@
+<!-- Лабораторная работа №1 
+Выполнил: Никитин Андрей, гр М8О-108М-20
+Вариант №19: По нажатию кнопки отобразить в элементе ввода URL документа, 
+             из которого произошло обращение, а при повторном нажатии - перейти на него.
+-->
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h1> Лабораторная работа №1 </h1>
+    <p><b> Выполнил: </b> Никитин Андрей, гр. М8О-108М-20 </p>
+    <p><b> Вариант №19: </b> По нажатию кнопки отобразить в элементе ввода URL документа, 
+          из которого произошло обращение, а при повторном нажатии - перейти на него </p>
+    <br>
+    <br>
+    <form name="input_form">
+        <input type="text" name="text_field_1">
+        <input type="button" name="button_1" value="Get Link">
+        <script>
+            isClicked = false
+
+            button_1 = document.input_form.button_1
+            text_field_1 = document.input_form.text_field_1
+
+            button_1.onclick = function() {
+                if (!isClicked) {
+                    text_field_1.value = document.URL
+                    button_1.value = "Go"
+                    isClicked = true
+                } else {
+                    window.location.href = text_field_1.value
+                }
+            }
+        </script>
+    </form>
+</body>
+</html>

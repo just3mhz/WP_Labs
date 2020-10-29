@@ -1,0 +1,41 @@
+#text_to_click{width: 300px; padding: 3px; cursor:pointer}
+#text_to_hide{width: 300px; padding: 3px;}
+
+.inner{
+    padding:7px;
+    margin:7px;
+    border: 1px solid black;
+    background-color:white;
+}
+
+.outer {
+    width: 400px;
+    position: relative;
+    margin: 15px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.wrapper {
+    margin: 18px;
+    border: 1px solid black;
+    background-color:white;
+}
+
+.list_item {
+    float: left;
+    height:20px;
+    margin: 1px;
+    padding: 3px;
+    background-color: #eee;
+    list-style-type:none;
+    width: 100px;
+}
+
+.background_changer {
+    width: 400px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid black;
+    margin: 15px;
+}
