@@ -1,20 +1,4 @@
 <data>
-  <person person_id="1">
-    <name>Андрей</name>
-    <second_name>Александрович</second_name>
-    <surname>Никитин</surname>
-    <phone>88005553535</phone>
-  </person>
-  <person person_id="2">
-    <name>Михаил</name>
-    <second_name>Асланович</second_name>
-    <surname>Погосян</surname>
-    <phone>931204870913257013258</phone>
-  </person>
-  <person person_id="3">
-    <name>Андрей</name>
-    <second_name>Алексеевич</second_name>
-    <surname>Скоромнов</surname>
-    <phone>NULL</phone>
-  </person>
+  <person person_id="1" name="AAA" second_name="AAA" surname="AAA" phone="8-XXX-XXX-XX-XX"/>
+  <person person_id="2" name="BBB" second_name="BBB" surname="BBB" phone="8-XXX-XXX-XX-XX"/>
 </data>

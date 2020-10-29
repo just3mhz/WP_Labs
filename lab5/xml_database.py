@@ -9,10 +9,7 @@ class XMLDatabase:
 
     @staticmethod
     def _extract_record(node):
-        record = {'person_id': node.attrib['person_id']}
-        for child in node:
-            record[child.tag] = child.text
-        return record
+        return node.attrib
 
     def __iter__(self):
         persons = self.xml_root.findall('./person')
@@ -31,20 +28,14 @@ class XMLDatabase:
         person_id = record['person_id']
         if self.xml_root.find(f'./person[@person_id="{person_id}"]') is not None:
             raise KeyError(f'Duplicated primary key: person_id={person_id}')
-        record_node = etree.SubElement(self.xml_root, 'person', person_id=str(person_id))
-        for field, value in record.items():
-            if field != 'person_id':
-                field_node = etree.SubElement(record_node, field)
-                field_node.text = str(value)
+        etree.SubElement(self.xml_root, 'person', **record)
 
     def edit(self, person_id, **kwargs):
         node = self.xml_root.find(f'./person[@person_id="{person_id}"]')
         if node is None:
             raise KeyError(f'Invalid primary key: person_id={person_id}')
         for field, value in kwargs.items():
-            sub_node = node.find(f'./{field}')
-            if sub_node is not None:
-                sub_node.text = str(value)
+            node.attrib[field] = str(value)
 
     def delete(self, person_id):
         node = self.xml_root.find(f'./person[@person_id="{person_id}"]')
@@ -54,7 +45,7 @@ class XMLDatabase:
     def display(self):
         for record_node in self.xml_root:
             person_id = record_node.attrib['person_id']
-            fields = ', '.join(f'{child.tag}=\'{child.text}\'' for child in record_node)
+            fields = ', '.join(f'{field}=\'{value}\'' for field, value in record_node.attrib)
             print(f'{person_id}: {fields}')
 
     def dumps(self):

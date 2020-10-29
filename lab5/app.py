@@ -1,14 +1,18 @@
 import json
 import logging
+import configparser
 
 from flask import Flask, render_template, request
 
 from xml_database import XMLDatabase
 
+config = configparser.ConfigParser()
+config.read('config.ini')
+
 app = Flask(__name__)
 
-db = XMLDatabase('persons.xml')
-db_schema = ['person_id', 'name', 'second_name', 'surname', 'phone']
+db = XMLDatabase(config['settings']['db_path'])
+db_schema = config['settings']['db_schema'].split(',')
 
 logging.basicConfig(level=logging.INFO)
 
@@ -23,7 +27,6 @@ def index():
 def insert_item():
     record = json.loads(request.data)
     db.insert(record)
-    db.dump()
     return ""
 
 
@@ -31,7 +34,6 @@ def insert_item():
 def delete_item():
     person_id = json.loads(request.data)['person_id']
     db.delete(person_id)
-    db.dump()
     return ""
 
 
@@ -39,9 +41,9 @@ def delete_item():
 def edit_item():
     record = json.loads(request.data)
     db.edit(**record)
-    db.dump()
     return ""
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=config['setting']['port'])
+    db.dump()
